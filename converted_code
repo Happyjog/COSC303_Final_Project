@@ -1,0 +1,37 @@
+#Room creation:
+
+func create_room() -> int:
+	var room_id: int = rooms.size()
+
+	rooms[room_id] = {
+		"north": -1,
+		"south": -1,
+		"east": -1,
+		"west": -1,
+		"is_boss_room": false,
+		"item": "",
+		"occupant": null
+	}
+
+	return room_id
+
+#------------------------------------------------
+
+
+#Picking up items:
+
+func pick_up_item() -> void:
+	if not rooms.has(current):
+		return
+
+	var item_name: String = rooms[current]["item"]
+
+	if item_name.is_empty():
+		print("No item to pick up!")
+		return
+
+	inventory[item_name] = inventory.get(item_name, 0) + 1
+	rooms[current]["item"] = ""
+
+	print(item_name, " picked up!")
+	print("Quantity owned: ", inventory[item_name])
