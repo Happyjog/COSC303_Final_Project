@@ -53,7 +53,35 @@ We debated using the c++ engine for godot, as the work done previously was in c+
     - each room will generate randomly from 4 preset room layouts(L-shaped, rectangle, U-shaped, hallway)
     - item could show you (vaugely) which direction to go
     - one room is the "exit room" where the game is over
+ 
 
+Meeting #1 - 11/05/2026
+    We met in the library today to talk about specific jobs and what are hard requirements to get 
+our project working. We messed around in godot and created a sample room to test out the camera. 
+Specific chosen jobs:
+
+Alex — Dungeon and room systems
+- Create the room matrix and connections between rooms.
+- Implement dungeon generation using a supplied or randomly chosen seed.
+- Create and display room layouts.
+- Keep the camera centered on the current room.
+- Implement fades and transitions between rooms.
+- Place the player at the correct entrance after a transition.
+- Preserve room state, including completed encounters and opened chests.
+- Implement BFS pathfinding.
+- Place the exit room and trigger victory.
+
+Jouji — Entities, player, and combat systems
+- Implement free player movement and wall collision.
+- Implement interactions with doors, chests, and enemies.
+- Create player and enemy data: health, attack power, and enemy presets.
+- Implement inventory, item collection, and item effects.
+- Create the separate turn-based battle scene.
+- Implement attacks, enemy turns, critical hits, misses, and battle results.
+- Add player/enemy sprites, animations, health displays, and combat buttons.
+- Implement the direction-hint item using Alex’s pathfinding results.
+- Create the title screen with Play and seed-selection options.
+- Create the game-over/continue screen and agreed death-reset behavior.
 
 
 
