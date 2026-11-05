@@ -38,3 +38,6 @@ g++ main.cpp Dungeon.cpp Entity.cpp Item.cpp presets.cpp -o game
 
 ### Current Progress Reflection
 We debated using the c++ engine for godot, as the work done previously was in c++, but ultimatley we decided that  the effort required to run c++ in godot would be greater than the simply transfering the current work into GDScript.
+
+### What we are trying to accomplish
+- 
