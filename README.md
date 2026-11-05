@@ -40,4 +40,17 @@ g++ main.cpp Dungeon.cpp Entity.cpp Item.cpp presets.cpp -o game
 We debated using the c++ engine for godot, as the work done previously was in c++, but ultimatley we decided that  the effort required to run c++ in godot would be greater than the simply transfering the current work into GDScript.
 
 ### What we are trying to accomplish
-- 
+##### (kind of in order of importance)
+- Player that can move freely and interact with chests, bosses, and doors
+- Make a camera that focuses on the center of the room
+    - When the character leaves the room it fades, and the program is given the side of of the room the character should be on(N, E, S, or W) and the next room its in.
+- Make "title screen" with a play button and then an option for a seed or randomly generate one
+- Make a matrix of room "objects" and each one has the layout of the room and which rooms its connected to on each side.
+    - each room can have some kind of puzzle/battle/advantage
+        - Battle will be a separate scene pokemon-style (if you die start from the beggining of the maze)
+    - item could show you (vaugely) which direction to go
+    - one room is the "exit room" where the game is over
+
+
+
+
