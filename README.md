@@ -32,8 +32,10 @@ g++ main.cpp Dungeon.cpp Entity.cpp Item.cpp presets.cpp -o game
 
 ### Jouji
 | Date  | Time(hrs) | Description                          | Notes/Link |
-|-------|-----------|--------------------------------------|------------|
-|       |           |                                      |            |
+|-------|----------|---------------------------------------|------------|
+| 10/15 | 2        |Downloaded and read Godot documentation|            |
+| 10/26 | 2        |Read more documentation                |            |
+| 11/05 | 1        |Worked on entity_data.gd               |            |
 
 
 ### Current Progress Reflection
