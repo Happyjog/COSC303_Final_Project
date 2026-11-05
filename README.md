@@ -45,6 +45,7 @@ We debated using the c++ engine for godot, as the work done previously was in c+
 - Make a camera that focuses on the center of the room
     - When the character leaves the room it fades, and the program is given the side of of the room the character should be on(N, E, S, or W) and the next room its in.
 - Make "title screen" with a play button and then an option for a seed or randomly generate one
+    - This will be a separate scene, as well as the game over/continue screen.
 - Make a matrix of room "objects" and each one has the layout of the room and which rooms its connected to on each side.
     - each room can have some kind of puzzle/battle/advantage
         - Battle will be a separate scene pokemon-style (if you die start from the beggining of the maze)
