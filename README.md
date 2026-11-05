@@ -49,6 +49,7 @@ We debated using the c++ engine for godot, as the work done previously was in c+
 - Make a matrix of room "objects" and each one has the layout of the room and which rooms its connected to on each side.
     - each room can have some kind of puzzle/battle/advantage
         - Battle will be a separate scene pokemon-style (if you die start from the beggining of the maze)
+    - each room will generate randomly from 4 preset room layouts(L-shaped, rectangle, U-shaped, hallway)
     - item could show you (vaugely) which direction to go
     - one room is the "exit room" where the game is over
 
