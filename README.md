@@ -45,20 +45,20 @@ We debated using the c++ engine for godot, as the work done previously was in c+
 ##### (kind of in order of importance)
 - Player that can move freely and interact with chests, bosses, and doors
 - Make a camera that focuses on the center of the room
-    - When the character leaves the room it fades, and the program is given the side of of the room the character should be on(N, E, S, or W) and the next room its in.
-    - Camera position depends on the type of room that it is veiwing
+	- When the character leaves the room it fades, and the program is given the side of of the room the character should be on(N, E, S, or W) and the next room its in.
+	- Camera position depends on the type of room that it is veiwing
 - Make "title screen" with a play button and then an option for a seed or randomly generate one
-    - This will be a separate scene, as well as the game over/continue screen.
+	- This will be a separate scene, as well as the game over/continue screen.
 - Make a matrix of room "objects" and each one has the layout of the room and which rooms its connected to on each side.
-    - each room can have some kind of puzzle/battle/advantage
-        - Battle will be a separate scene pokemon-style (if you die start from the beggining of the maze)
-    - each room will generate randomly from 4 preset room layouts(L-shaped, rectangle, U-shaped, hallway)
-    - item could show you (vaugely) which direction to go
-    - one room is the "exit room" where the game is over
+	- each room can have some kind of puzzle/battle/advantage
+		- Battle will be a separate scene pokemon-style (if you die start from the beggining of the maze)
+	- each room will generate randomly from 4 preset room layouts(L-shaped, rectangle, U-shaped, hallway)
+	- item could show you (vaugely) which direction to go
+	- one room is the "exit room" where the game is over
  
 
 Meeting #1 - 11/05/2026
-    We met in the library today to talk about specific jobs and what are hard requirements to get 
+	We met in the library today to talk about specific jobs and what are hard requirements to get 
 our project working. We messed around in godot and created a sample room to test out the camera. 
 Specific chosen jobs:
 
@@ -84,6 +84,3 @@ Jouji — Entities, player, and combat systems
 - Implement the direction-hint item using Alex’s pathfinding results.
 - Create the title screen with Play and seed-selection options.
 - Create the game-over/continue screen and agreed death-reset behavior.
-
-
-
