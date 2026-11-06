@@ -8,7 +8,8 @@ const TEXTURE_TILES = {
 		Vector2i(8,6),
 		Vector2i(7, 7),
 		Vector2i(9,5),
-		Vector2i(9,4)
+		Vector2i(9,4),
+		Vector2i(5,8)
 	],
 	"TOP_WALL": [
 		Vector2i(0,9),
@@ -34,7 +35,6 @@ func generate_objects(layout: Array, origin: Vector2i, rng: RandomNumberGenerato
 			# Only consider floor tiles
 			if rng.randf() < 0.06: # 4% chance to spawn an object
 				var item = null
-				var flip = false
 				if layout[y][x] == 1: # floor
 					item = TEXTURE_TILES["FLOOR"][
 						rng.randi_range(0, TEXTURE_TILES["FLOOR"].size() - 1)
@@ -52,7 +52,6 @@ func generate_objects(layout: Array, origin: Vector2i, rng: RandomNumberGenerato
 						rng.randi_range(0, TEXTURE_TILES["LEFT_FLOOR"].size() - 1)
 					]
 				elif layout[y][x] == 4: #right floor
-					flip = true
 					item = TEXTURE_TILES["LEFT_FLOOR"][
 						rng.randi_range(0, TEXTURE_TILES["LEFT_FLOOR"].size() - 1)
 					]
@@ -63,3 +62,4 @@ func generate_objects(layout: Array, origin: Vector2i, rng: RandomNumberGenerato
 						source_id,
 						item
 					)
+								

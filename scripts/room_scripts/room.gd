@@ -21,16 +21,20 @@ const TILE_COORDS = {
 			Vector2i(3, 4),
 			Vector2i(4, 4)
 		],
-		"WALL_LEFT": [
+		"LEFT": [
 			Vector2i(0, 1),
 			Vector2i(0, 2),
 			Vector2i(0, 3)
 		],
-		"WALL_RIGHT": [
+		"RIGHT": [
 			Vector2i(5, 1),
 			Vector2i(5, 2),
 			Vector2i(5, 3)
-		]
+		],
+		"CORNER_RIGHT": [Vector2i(3,5)],
+		"CORNER_LEFT": [Vector2i(0,5)],
+		"CORNER_BOTTOM_LEFT": [Vector2i(4,5)],
+		"CORNER_BOTTOM_RIGHT": [Vector2i(5,5)]
 	},
 	"FLOOR": {
 		"TILE": [
@@ -78,15 +82,17 @@ func get_tile_coord(tile_type: int, rng: RandomNumberGenerator) -> Vector2i:
 		9: return TILE_COORDS["FLOOR"]["BOTTOM_RIGHT"][0]
 		10: return get_random_tile_coord(TILE_COORDS["WALL"]["TOP"], rng)
 		11: return get_random_tile_coord(TILE_COORDS["WALL"]["BOTTOM"], rng)
-		12: return get_random_tile_coord(TILE_COORDS["WALL"]["WALL_LEFT"], rng)
-		13: return get_random_tile_coord(TILE_COORDS["WALL"]["WALL_RIGHT"], rng)
+		12: return get_random_tile_coord(TILE_COORDS["WALL"]["LEFT"], rng)
+		13: return get_random_tile_coord(TILE_COORDS["WALL"]["RIGHT"], rng)
 		14: return TILE_COORDS["WALL"]["TOP_LEFT"][0]
 		15: return TILE_COORDS["WALL"]["TOP_RIGHT"][0]
 		16: return TILE_COORDS["WALL"]["BOTTOM_LEFT"][0]
 		17: return TILE_COORDS["WALL"]["BOTTOM_RIGHT"][0]
+		18: return TILE_COORDS["WALL"]["CORNER_RIGHT"][0]
+		19: return TILE_COORDS["WALL"]["CORNER_BOTTOM_RIGHT"][0]
+		20: return TILE_COORDS["WALL"]["CORNER_LEFT"][0]
+		21: return TILE_COORDS["WALL"]["CORNER_BOTTOM_LEFT"][0]
 
-		
-		
 
 	push_error("Invalid room tile type: " + str(tile_type))
 	return TILE_COORDS["OUTSIDE"]
@@ -120,7 +126,7 @@ func generate_room(layout: Array, origin: Vector2i, rng: RandomNumberGenerator):
 	#validate tile values before clearing the existing map.
 	for row in layout:
 		for tile_type in row:
-			if tile_type < 0 or tile_type > 17:
+			if tile_type < 0 or tile_type > 21:
 				push_error("Invalid room tile type: " + str(tile_type))
 				return
 
@@ -148,10 +154,10 @@ func _ready():
 		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[14,10,10,10,10,10,10,10,10,10,10,10,10,10,10,15],
 		[12,6,2,2,2,2,2,2,2,2,2,2,2,2,7,13],
-		[12,4,1,1,1,1,1,1,1,1,1,1,1,1,5,13],
-		[12,4,1,1,1,1,1,1,1,1,1,1,1,1,5,13],
-		[12,4,1,1,1,1,1,1,1,1,1,1,1,1,5,13],
-		[12,4,1,1,1,1,1,1,1,1,1,1,1,1,5,13],
+		[12,4,1,1,1,1,1,1,1,1,1,1,1,1,5,21],
+		[12,4,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+		[12,4,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
+		[12,4,1,1,1,1,1,1,1,1,1,1,1,1,5,20],
 		[12,8,3,3,3,3,3,3,3,3,3,3,3,3,9,13],
 		[16,11,11,11,11,11,11,11,11,11,11,11,11,11,11,17]
 	]
