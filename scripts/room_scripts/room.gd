@@ -97,14 +97,15 @@ func get_tile_coord(tile_type: int, rng: RandomNumberGenerator) -> Vector2i:
 	push_error("Invalid room tile type: " + str(tile_type))
 	return TILE_COORDS["OUTSIDE"]
 
+
+
 # Generates a room from an NxM integer matrix.
-func generate_room(layout: Array, origin: Vector2i, rng: RandomNumberGenerator):
-	#check that the matrix isn't empty.
+func generate_room(layout: Array, origin: Vector2i, rng: RandomNumberGenerator) -> void:
+
 	if layout.is_empty():
 		push_error("Room layout cannot be empty.")
 		return
 
-	# Get matrix dimensions.
 	var height = layout.size()
 
 	if not layout[0] is Array:
@@ -117,53 +118,27 @@ func generate_room(layout: Array, origin: Vector2i, rng: RandomNumberGenerator):
 		push_error("Room layout cannot have empty rows.")
 		return
 
-	# Check that every row has the same width.
 	for row in layout:
 		if not row is Array or row.size() != width:
 			push_error("All rows must have the same number of columns.")
 			return
 
-	#validate tile values before clearing the existing map.
 	for row in layout:
 		for tile_type in row:
 			if tile_type < 0 or tile_type > 21:
 				push_error("Invalid room tile type: " + str(tile_type))
 				return
 
-	clear()
+	# Do NOT clear here. The parent clears the layer once.
 
-	# Generate each tile.
 	for y in range(height):
 		for x in range(width):
+
 			var tile_type: int = layout[y][x]
 			var atlas_coord = get_tile_coord(tile_type, rng)
+
 			set_cell(
 				origin + Vector2i(x, y),
 				source_id,
 				atlas_coord
 			)
-
-	print("Generated room: ", width, " x ", height)		
-
-#runs the first time tile map layer shows up
-func _ready():
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-	
-	var array = [
-		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-		[14,10,10,10,10,10,10,10,10,10,10,10,10,10,10,15],
-		[12,6,2,2,2,2,2,2,2,2,2,2,2,2,7,13],
-		[12,4,1,1,1,1,1,1,1,1,1,1,1,1,5,21],
-		[12,4,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
-		[12,4,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
-		[12,4,1,1,1,1,1,1,1,1,1,1,1,1,5,20],
-		[12,8,3,3,3,3,3,3,3,3,3,3,3,3,9,13],
-		[16,11,11,11,11,11,11,11,11,11,11,11,11,11,11,17]
-	]
-	
-	generate_room(array, Vector2i(-8, -5), rng)
-	$RoomObjects.generate_objects(array, Vector2i(-8, -5), rng)
-	
-	pass
-	

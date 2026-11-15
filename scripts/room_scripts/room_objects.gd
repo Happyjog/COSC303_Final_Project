@@ -24,42 +24,47 @@ const TEXTURE_TILES = {
 }
 
 
-func generate_objects(layout: Array, origin: Vector2i, rng: RandomNumberGenerator):
-	clear()
+
+func generate_objects(layout: Array, origin: Vector2i, rng: RandomNumberGenerator) -> void:
+
+	if layout.is_empty():
+		return
 
 	var height = layout.size()
 	var width = layout[0].size()
 
 	for y in range(height):
 		for x in range(width):
-			# Only consider floor tiles
-			if rng.randf() < 0.06: # 4% chance to spawn an object
-				var item = null
-				if layout[y][x] == 1: # floor
-					item = TEXTURE_TILES["FLOOR"][
-						rng.randi_range(0, TEXTURE_TILES["FLOOR"].size() - 1)
-					]
-				elif layout[y][x] == 6: #top left corner
-					item = TEXTURE_TILES["TOP_LEFT_FLOOR"][
-						rng.randi_range(0, TEXTURE_TILES["TOP_LEFT_FLOOR"].size() - 1)
-					]
-				elif layout[y][x] == 10: #top wall
-					item = TEXTURE_TILES["TOP_WALL"][
-						rng.randi_range(0, TEXTURE_TILES["TOP_WALL"].size() - 1)
-					]
-				elif layout[y][x] == 4: #left floor
-					item = TEXTURE_TILES["LEFT_FLOOR"][
-						rng.randi_range(0, TEXTURE_TILES["LEFT_FLOOR"].size() - 1)
-					]
-				elif layout[y][x] == 4: #right floor
-					item = TEXTURE_TILES["LEFT_FLOOR"][
-						rng.randi_range(0, TEXTURE_TILES["LEFT_FLOOR"].size() - 1)
-					]
-				
-				if item != null:
-					set_cell(
-						origin + Vector2i(x, y),
-						source_id,
-						item
-					)
-								
+
+			var tile_type: int = layout[y][x]
+			var item = null
+
+			# Only spawn objects on supported tile types
+			match tile_type:
+
+				1: # Interior floor
+					if rng.randf() < 0.04:
+						item = TEXTURE_TILES["FLOOR"].pick_random()
+
+				6: # Top-left floor corner
+					if rng.randf() < 0.04:
+						item = TEXTURE_TILES["TOP_LEFT_FLOOR"].pick_random()
+
+				10: # Top wall
+					if rng.randf() < 0.04:
+						item = TEXTURE_TILES["TOP_WALL"].pick_random()
+
+				4: # Left floor edge
+					if rng.randf() < 0.04:
+						item = TEXTURE_TILES["LEFT_FLOOR"].pick_random()
+
+				5: # Right floor edge
+					if rng.randf() < 0.04:
+						item = TEXTURE_TILES["LEFT_FLOOR"].pick_random()
+
+			if item != null:
+				set_cell(
+					origin + Vector2i(x, y),
+					source_id,
+					item
+				)
