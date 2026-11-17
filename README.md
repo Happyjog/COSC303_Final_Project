@@ -31,6 +31,7 @@ g++ main.cpp Dungeon.cpp Entity.cpp Item.cpp presets.cpp -o game
 | 10/26 | 1         | Set up collaborative environment for creating the project in godot thru github | |
 | 11/5  | 2.5       | Did alot of work on the tile generation map |     |
 | 11/10 | 1			| Worked on the script for the generation of rooms ||
+| 11/15 | 3			| Made the bulk of the map generation algorithm, rewrote some of the texture placement rng | This is where we changed aspect ratio to 4:3 |
 
 ### Jouji
 | Date  | Time(hrs) | Description                          | Notes/Link |
