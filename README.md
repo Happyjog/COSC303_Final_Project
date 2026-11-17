@@ -27,7 +27,7 @@ g++ main.cpp Dungeon.cpp Entity.cpp Item.cpp presets.cpp -o game
 ### Alex
 | Date  | Time(hrs) | Description                          | Notes/Link |
 |-------|-----------|--------------------------------------|------------|
-| 10/15 | 2         | Downloaded and Learned Godot Engine  |            |
+| 10/15 | 2         | Downloaded and Learned Godot Engine  | [YouTube Tutorial](https://www.youtube.com/playlist?list=PLZ-54sd-DMALABr_k6VpMnut_11q2oJmv) |
 | 10/26 | 1         | Set up collaborative environment for creating the project in godot thru github | |
 | 11/5  | 2.5       | Did alot of work on the tile generation map |     |
 | 11/10 | 1			| Worked on the script for the generation of rooms ||
