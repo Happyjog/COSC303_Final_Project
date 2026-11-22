@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bg42jx18f4hnl"]
+
+[ext_resource type="PackedScene" uid="uid://31yrv3rs2f2n" path="res://main.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/entities/player.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/entities/static_enemy.tscn" id="3"]
+[ext_resource type="Script" uid="uid://cqajkg5a568pl" path="res://scripts/entity_scripts/player_demo.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://brub2gxjf2jh3" path="res://scenes/entities/battle_view.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/entities/item_pickup.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://scenes/entities/inventory.tscn" id="7"]
+
+[node name="PlayerDemo" type="Node2D" unique_id=211967119]
+script = ExtResource("4")
+
+[node name="Dungeon" parent="." unique_id=1030762730 instance=ExtResource("1")]
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1847017386]
+
+[node name="Player" parent="." unique_id=295010811 groups=["player"] instance=ExtResource("2")]
+position = Vector2(512, 384)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1885014934]
+zoom = Vector2(3.375, 3.375)
+
+[node name="Skeleton" parent="." unique_id=74643519 instance=ExtResource("3")]
+position = Vector2(568, 376)
+
+[node name="Skeleton2" parent="." unique_id=555908677 instance=ExtResource("3")]
+position = Vector2(456, 424)
+
+[node name="Battle" parent="." unique_id=2067445111 instance=ExtResource("5")]
+visible = false
+
+[node name="StartingPotion" parent="." unique_id=273715687 instance=ExtResource("6")]
+position = Vector2(512, 384)
+
+[node name="BombChest" parent="." unique_id=203194083 instance=ExtResource("6")]
+position = Vector2(536, 400)
+item_name = "Bomb"
+
+[node name="Inventory" parent="." unique_id=307546058 instance=ExtResource("7")]
+
+[connection signal="skeleton_touched" from="Player" to="." method="_enter_battle"]
+[connection signal="finished" from="Battle" to="." method="_end_battle"]
+[connection signal="collected" from="StartingPotion" to="Inventory" method="add_item"]
+[connection signal="collected" from="BombChest" to="Inventory" method="add_item"]
+[connection signal="opened_changed" from="Inventory" to="." method="_inventory_toggled"]

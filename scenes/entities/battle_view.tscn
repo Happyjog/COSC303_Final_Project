@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://brub2gxjf2jh3"]
+
+[ext_resource type="Texture2D" uid="uid://cen741ptcwcpk" path="res://assets/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest1/v1/priest1_v1_1.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://1x85kc5k0r1j" path="res://assets/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skeleton1/v1/skeleton_v1_1.png" id="2"]
+[ext_resource type="Script" uid="uid://mtarpnudawsi" path="res://scripts/entity_scripts/battle.gd" id="3_battle"]
+
+[node name="Battle" type="CanvasLayer" unique_id=547683268]
+layer = 10
+script = ExtResource("3_battle")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=316470756]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.19953212, 0.075994514, 0.17974776, 1)
+
+[node name="Player" type="TextureRect" parent="Backdrop" unique_id=676170658]
+layout_mode = 0
+anchor_left = 0.26
+anchor_top = 0.44
+anchor_right = 0.51
+anchor_bottom = 0.94
+texture = ExtResource("1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Skeleton" type="TextureRect" parent="Backdrop" unique_id=1690720594]
+layout_mode = 0
+anchor_left = 0.62
+anchor_top = 0.12
+anchor_right = 0.8
+anchor_bottom = 0.39
+texture = ExtResource("2")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="EndBattle" type="Button" parent="Backdrop" unique_id=1509885351]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -172.0
+offset_top = -76.0
+offset_right = -24.0
+offset_bottom = -24.0
+text = "End Battle"
+
+[node name="Info" type="VBoxContainer" parent="Backdrop" unique_id=1736607682]
+layout_mode = 0
+anchor_left = 0.05
+anchor_top = 0.2
+anchor_right = 0.05
+anchor_bottom = 0.2
+
+[node name="Health" type="Label" parent="Backdrop/Info" unique_id=748670945]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Message" type="Label" parent="Backdrop/Info" unique_id=570949661]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Actions" type="VBoxContainer" parent="Backdrop" unique_id=413463139]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -172.0
+offset_top = -210.0
+offset_right = -24.0
+offset_bottom = -84.0
+
+[node name="Attack" type="Button" parent="Backdrop/Actions" unique_id=744391156]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Attack"
+
+[node name="Potion" type="Button" parent="Backdrop/Actions" unique_id=285560388]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Bomb" type="Button" parent="Backdrop/Actions" unique_id=2008357878]
+unique_name_in_owner = true
+layout_mode = 2
