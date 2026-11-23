@@ -87,3 +87,6 @@ Jouji — Entities, player, and combat systems
 - Implement the direction-hint item using Alex’s pathfinding results.
 - Create the title screen with Play and seed-selection options.
 - Create the game-over/continue screen and agreed death-reset behavior.
+
+Sources:
+https://godotshaders.com/shader/pixel-slash-shader/
