@@ -86,3 +86,10 @@ layout_mode = 2
 [node name="Bomb" type="Button" parent="Backdrop/Actions" unique_id=2008357878]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="Slash" type="TextureRect" parent="Backdrop" unique_id=705595668]
+z_index = 1
+layout_mode = 0
+offset_right = 112.0
+offset_bottom = 112.0
+mouse_filter = 2

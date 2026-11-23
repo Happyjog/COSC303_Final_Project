@@ -12,6 +12,8 @@ func _physics_process(_delta: float) -> void:
 		int(Input.is_physical_key_pressed(KEY_S)) - int(Input.is_physical_key_pressed(KEY_W))
 	)
 	velocity = (direction + wasd).limit_length() * speed
+	if velocity.x != 0.0:
+		$Sprite.flip_h = velocity.x < 0.0
 	move_and_slide()
 	# Both bodies have a five-pixel radius. Rearm after walking clear.
 	if is_instance_valid(last_skeleton) and global_position.distance_to(last_skeleton.global_position) > 12.0:
