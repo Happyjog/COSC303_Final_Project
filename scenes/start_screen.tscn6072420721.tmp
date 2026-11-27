@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b8428gb1nk8l2"]
+
+[ext_resource type="Texture2D" uid="uid://dbcyp7werw8dn" path="res://assets/start_screen.png" id="1_tx5wa"]
+[ext_resource type="Script" uid="uid://3yhm77f4mgvl" path="res://scripts/UI/StartButton.gd" id="2_o7i0r"]
+[ext_resource type="FontFile" uid="uid://bvn8tgllnl8cx" path="res://assets/Font/Pixelta.ttf" id="3_he1sj"]
+[ext_resource type="Script" uid="uid://dycrkksgcf0tb" path="res://scripts/UI/SeedInput.gd" id="4_r2jwc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hm208"]
+load_path = "res://.godot/imported/Empty.png-2fe914220634f3f705e3fe110383f8a9.ctex"
+
+[node name="StartScreen" type="Control" unique_id=1097854279]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRectd" type="TextureRect" parent="." unique_id=1143745973]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0170001
+offset_right = -6.0
+offset_bottom = 0.17095947
+texture = ExtResource("1_tx5wa")
+expand_mode = 3
+
+[node name="StartButton" type="Button" parent="." unique_id=331610477]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 380.0
+offset_right = 601.0
+offset_bottom = 457.0
+script = ExtResource("2_o7i0r")
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=306952146]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 493.0
+offset_right = 1133.0
+offset_bottom = 905.0
+theme_override_colors/font_color = Color(0.55046594, 0.4075253, 0.37389216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/minimum_character_width = 4
+theme_override_fonts/font = ExtResource("3_he1sj")
+theme_override_font_sizes/font_size = 43
+placeholder_text = "Seed"
+right_icon = SubResource("CompressedTexture2D_hm208")
+icon_expand_mode = 2
+script = ExtResource("4_r2jwc")

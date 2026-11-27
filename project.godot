@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="COSC303_Final_Project"
-run/main_scene="uid://31yrv3rs2f2n"
+run/main_scene="uid://b8428gb1nk8l2"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 

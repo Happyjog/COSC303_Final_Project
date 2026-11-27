@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b8428gb1nk8l2"]
+
+[ext_resource type="Texture2D" uid="uid://04e55w8r2xc8" path="res://assets/start.png" id="1_5pab1"]
+[ext_resource type="Script" uid="uid://3yhm77f4mgvl" path="res://scripts/UI/StartButton.gd" id="2_o7i0r"]
+[ext_resource type="Texture2D" uid="uid://3kumdxgihb2v" path="res://assets/start_button.png" id="2_o30b1"]
+[ext_resource type="FontFile" uid="uid://bvn8tgllnl8cx" path="res://assets/Font/Pixelta.ttf" id="3_he1sj"]
+[ext_resource type="Texture2D" uid="uid://bnigayf35hebc" path="res://assets/seed_input.png" id="4_ka6nf"]
+[ext_resource type="Script" uid="uid://dycrkksgcf0tb" path="res://scripts/UI/SeedInput.gd" id="4_r2jwc"]
+
+[node name="StartScreen" type="Control" unique_id=1097854279]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRectd" type="TextureRect" parent="." unique_id=1143745973]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0170001
+offset_right = -6.0
+offset_bottom = 0.17095947
+texture = ExtResource("1_5pab1")
+expand_mode = 3
+
+[node name="StartButton" type="Button" parent="." unique_id=331610477]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 367.0
+offset_right = 575.0
+offset_bottom = 441.0
+icon = ExtResource("2_o30b1")
+expand_icon = true
+script = ExtResource("2_o7i0r")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1014955684]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 454.0
+offset_right = 619.0
+offset_bottom = 541.0
+texture = ExtResource("4_ka6nf")
+expand_mode = 3
+
+[node name="LineEdit" type="LineEdit" parent="TextureRect" unique_id=306952146]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 14.0
+offset_right = 338.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0.55046594, 0.4075253, 0.37389216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/minimum_character_width = 4
+theme_override_fonts/font = ExtResource("3_he1sj")
+theme_override_font_sizes/font_size = 43
+placeholder_text = "Seed"
+script = ExtResource("4_r2jwc")
